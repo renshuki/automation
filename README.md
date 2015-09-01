@@ -172,32 +172,32 @@ $ git push --all
 ```
 ![Screen Shot 2015-07-28 at 5.32.51 PM.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/push_to_gh.png)
 
-### 開発手順
-今回のレシピでは基本的に以下の流れで開発します
-1. 「Issueを作る」
-2. 「featureブランチを作る」
-3. 「テストを書く」（Gemの編集など、テストする必要がない時はテストは省略します）
-4. 「テストが失敗する」
-5. 「ソースコードを編集する」
-6. 「テストが通過する」
-7. 「featureブランチをコミットする」
-8. 「featureブランチをGitHubにプッシュする」
-9. 「featureブランチからdevelopブランチへプルリクエストを作る」
-10. 「featureブランチをdevelopブランチにマージする」
-11. 「developブランチをmasterブランチにマージする」
+### Development Guide
+We follow these steps for this project.
+1. [Create issue]
+2. [Create feature branch]
+3. [Write Test]（Not tests for Gemfile, though. )
+4. [Test Fail]
+5. [Edit Sourcecode]
+6. [Test Pass] - We skip refactoring step for this project.
+7. [Commit on feature branch]
+8. [Push feature branch to GitHub]
+9. [Create pull request from feature branch to develop branch on GitHub]
+10. [Merge feature branch to develop branch]
+11. [Merge develop branch to master branch]
 
-### Gemfile（最小の構成）
-#### GitHubにissueを追加
+### Gemfile（Minimum Setup）
+#### Create issue on GitHub - It says 'Install minimum gems'
 ![create_issue.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/add_issue_on_gh.png)
 
-#### git-flow でfeatureブランチを作る
+#### Create feature branch with using Git Flow - branch name is setup
 ```sh
 $ git-flow feature start setup
 ```
 
-#### Gemfileを編集する
+#### Edit Gemfile
 ```ruby
-# ~/recipe/taskapp/Gemfileの中身
+# Inside of ~/recipe/taskapp/Gemfile
 source 'https://rubygems.org'
 gem 'rails'
 gem 'sqlite3'
@@ -208,42 +208,42 @@ gem 'jquery-rails'
 gem 'turbolinks'
 ```
 
-#### Gemをインストールする
+#### Install gems
 ```sh
-# ~/recipe/taskapp/.bundle にインストールします
+# Install gems inside ~/recipe/taskapp/.bundle directory
 $ bundle install --path .bundle
 ```
 ![Screen Shot 2015-07-28 at 5.02.06 PM.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/bundle.png)
 
-#### 変更をコミットする
+#### Commit what you did
 ```sh
 $ git add .
-$ git commit -am 'close #1'
+$ git commit -am 'close #1' # This message closes issue #1 on GitHub automatically when feature branch was merged to develop branch. Amazing !
 ```
 
-#### GitHubにプッシュする ( git-flow形式で)
+#### Push to GitHub in Git Flow way.
 ```sh
 $ git flow feature publish setup
 ```
 
-#### プルリクエストを作る
+#### Create Pull Request
 ![create pull request.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/create_pr.png)
-###### 「base」がマージする先のブランチで「compare」がマージする元のブランチです
-###### ここでは「base」がdevelopブランチで「compare」がfeatureブランチです
+###### [base] is kind of 'to' branch.
+###### [compare] is kind of 'from' branch.
+###### In this case, [base] is develop branch, [compare] is feature branch.
 
-#### プルリクエストをdevelopブランチにマージする
-###### マージ前
+#### Merge Pull Request to develop branch
+###### Before merge
 ![merge pull request from feature:setup.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/merge_pr.png)
 
-###### マージ後
+###### After merge
 ![merged pullrequest from feature:setup.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/merged_pr.png)
 
-#### developブランチをmasterブランチにマージする
-##### 上記と同様にdevelopブランチをmasterブランチにマージします
+#### Merge develop branch to master branch
+##### Same as above.
 
-#### Issueがclosedになっていることを確認する
+#### Check if issue #1 was closed
 ![Screen Shot 2015-07-28 at 6.04.42 PM.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/issue_closed.png)
-###### masterブランチへのマージが完了するとIssueが自動的にクローズされます( closed が 1 になっています)
 
 ### テスト駆動開発に必要なGemを入れる
 #### 最新のdevelopブランチをGitHubから取得する
