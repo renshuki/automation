@@ -1,66 +1,63 @@
-## WIP
-#### 更新済み 2015年07月31日
-### ※このレシピは製作途中です
+## This Tutorial is work in progress
+#### Latest Update 2015/07/31
 
-## 準備するもの
-今回必要なものは以下のようになります。
+## Requirements
+* Mac
+* Homebrew ( It's very useful because we can install packages with Command Line Interface ! )
+* Virtualbox ( Install via Homebrew ( I say later. ) )
+* Vagrant ( Install via Homebrew ( I say later. ) )
+* Ansible ( Install via Homebrew ( I say later. ) )
 
-* Mac ( Windows派の人、ごめんなさい )
-* Homebrew ( ツールをターミナルからインストールできるので便利です )
-* Virtualbox ( Homebrewを使ってインストールします (後述) )
-* Vagrant ( Homebrew を使ってインストールします (後述) )
-* Ansible ( Homebrew を使ってインストールします (後述) )
-
-## 事前準備
-### ( ツール・パッケージ編)
-#### Homebrewをインストールする
+## Basic Setup
+### ( Tools, Packages )
+#### Install Homebrew
 ```sh
 $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-#### Homebrewを最新にする
+#### Update Homebrew
 ```sh
 $ brew update && brew upgrade
 ```
 
-#### Brewdlerをインストールする
+#### Install Brewdler
 ```sh
 $ brew tap Homebrew/brewdler
 ```
 
-#### ~/.brewfileを編集する
+#### Edit ~/.brewfile
 ```sh
-# ~/.brewfile の中身
+# Inside of ~/.brewfile
 
-# Chrome や Virtualbox などアプリを入れるのに使います
+# for installing Applications. such as Chrome, Virtualbox, etc.
 tap 'caskroom/cask'
 brew 'caskroom/cask/brew-cask'
 
-# Homebrewで入れるパッケージを.brewfileで管理するのに使います
+# for managing packages you want with ~/.brewfile file
 tap 'homebrew/brewdler'
 
-# Nokogiri を入れるのに使います
+# for installing Nokogiri.
 brew 'libiconv'
 brew 'libxml2'
 
-# Rubyを複数バージョン入れるのに使います
+# for installing multiple Ruby versions.
 brew 'rbenv'
 brew 'ruby-build'
 
-# 仮想環境構築に使います
+# for managing virtual envronment. ( Infrastracture as Code )
 brew 'ansible'
 cask 'vagrant'
 cask 'virtualbox'
 
-# 動作確認の自動化に使います
+# for Automating browser's behavior. ( WIP )
 cask 'firefox'
 
-# Git Flow で使います
+# for Git Flow
 brew 'git'
 brew 'git-flow'
 ```
 
-#### ツール・パッケージをインストールする
+#### Install tools & packages
 ```sh
 $ cd
 $ brew brewdle
@@ -68,49 +65,49 @@ $ brew brewdle
 ![Screen Shot 2015-07-28 at 4.01.46 PM.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/homebrew.png)
 
 
-### ( Ruby編 )
-#### ~/.bashrcを編集する
+### ( Ruby )
+#### Edit ~/.bashrc
 ```sh
-# ~/.bashrcの最下部に以下を追記
+# Add this line at the bottom of ~/.bashrc
 eval "$(rbenv init -)"
 ```
 
-#### rbenvコマンドを有効化する
+#### Enable rbenv commands
 ```sh
 $ exec $SHELL -l
 ```
 
-#### rbenvコマンドが使えるか確認する
+#### Check if rbenv commands are enabled
 ```sh
 $ rbenv
 ```
 ![Screen Shot 2015-07-28 at 4.18.26 PM.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/rbenv.png)
 
-#### Ruby 2.1.6をインストールする
+#### Install Latest Ruby version ( It was 2.1.6 when this document was created. )
 ```sh
 $ rbenv install 2.1.6
 ```
 
-#### Ruby 2.1.6をMac全体で使えるようにする
+#### Enable to use Ruby 2.1.6 everywhere in mac
 ```sh
 $ rbenv global 2.1.6
 $ rbenv rehash
 ```
 
-#### Ruby 2.1.6がMac全体で使えるようになったか確認する
+#### Check if Ruby 2.1.6 is enabled to use everywhere in mac
 ```sh
 $ ruby -v
 ```
 
-### ( Gem編 )
-#### gemのシステムを最新にする
+### ( Gem ) - Ruby libraries
+#### Update gem system
 ```sh
 $ gem update --system
 $ rbenv rehash
 ```
 
-### ( Node編 (Rails で使います) )
-#### 最新のNode.jsをインストールする
+### ( NodeJS ) - Rails needs NodeJS
+#### Install latest Node.js
 ```sh
 $ git clone https://github.com/riywo/ndenv ~/.ndenv
 $ echo 'export PATH="$HOME/.ndenv/bin:$PATH"' >> ~/.bashrc
@@ -122,30 +119,30 @@ $ ndenv global v0.12.0
 $ ndenv rehash
 ```
 
-### ( GitHub編 )
-#### GitHubにリポジトリを作成 ( 今回はtaskapp )
+### ( GitHub )
+#### Create Repository at GitHub ( I named 'taskapp' for this tutorial )
 ![Screen Shot 2015-07-28 at 5.24.33 PM.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/create_repo_on_gh.png)
 
 
-### レシピ用ディレクトリ(recipe)の設定
+### Setting up for this project
 ```sh
-# プロジェクト用のディレクトリを作る
+# Create Directory for this project.
 $ mkdir ~/recipe
 $ cd ~/recipe
-# プロジェクトで使うgemをインストールする
-$ bundle init # Gemfileが自動で生成されます
+# Install gems for this project.
+$ bundle init # Gemfile will be created automatically.
 $ vim ~/recipe/Gemfile
 ```
 ```ruby
-# Gemfileの中身
+# Inside of Gemfile
 source 'https://rubygems.org'
 gem 'rails'
 ```
 ```sh
-# Railsの最新版をインストールする
+# Install latest Rails
 $ bundle install --path .bundle
 ```
-#### 事前準備はここまでです。少し休憩しましょう
+#### Setup is done. Let's take a break ! ( ^_^)／□☆□＼(^-^ )
 
 
 ## Rails アプリ(taskapp)の開発
