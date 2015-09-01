@@ -174,17 +174,18 @@ $ git push --all
 
 ### Development Guide
 We follow these steps for this project.
-1. [Create issue]
-2. [Create feature branch]
-3. [Write Test]（Not tests for Gemfile, though. )
-4. [Test Fail]
-5. [Edit Sourcecode]
-6. [Test Pass] - We skip refactoring step for this project.
-7. [Commit on feature branch]
-8. [Push feature branch to GitHub]
-9. [Create pull request from feature branch to develop branch on GitHub]
-10. [Merge feature branch to develop branch]
-11. [Merge develop branch to master branch]
+
+  1. Create issue
+  2. Create feature branch
+  3. Write Test -（ Not tests for Gemfile, though. )
+  4. Test Fail
+  5. Edit Sourcecode
+  6. Test Pass - We skip refactoring step for this project.
+  7. Commit on feature branch
+  8. Push feature branch to GitHub
+  9. Create pull request from feature branch to develop branch on GitHub
+  10. Merge feature branch to develop branch
+  11. Merge develop branch to master branch
 
 ### Gemfile（Minimum Setup）
 #### Create issue on GitHub - It says 'Install minimum gems'
