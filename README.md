@@ -142,32 +142,32 @@ gem 'rails'
 # Install latest Rails
 $ bundle install --path .bundle
 ```
-#### Setup is done. Let's take a break ! ( ^_^)／□☆□＼(^-^ )
+#### Basic Setup is done. Let's take a break ! ( ^_^)／□☆□＼(^-^ )
 
 
-## Rails アプリ(taskapp)の開発
-### 準備
-#### rails new
+## Developing Rails application ( taskapp )
+### Setup
+#### Create rails application
 ```sh
 $ cd ~/recipe
 $ bundle exec rails new taskapp -T -B
-# -T オプションはユニットテストを入れないために付けます
-# -B オプションはひな形生成時にgemをインストールしないために付けます
+# -T for not installing Unit Test ( we use rspec instead for this project )
+# -B for not installing gems now
 ```
 
-#### git-flowを導入する
+#### Setup Git Flow
 ```sh
-$ git-flow init # 質問はすべてEnterで大丈夫です
+$ git-flow init # Just Press [ENTER]. We use default setting.
 ```
 
-#### 最初のコミット
+#### Initial Commit
 ```sh
 $ git add .
 $ git commit -am 'Initial Commit'
 ```
-#### GitHubへプッシュする
+#### Push to GitHub
 ```sh
-$ git remote add origin https://github.com/GitHubのアカウント名/taskapp.git
+$ git remote add origin https://github.com/GitHub_Account_Name/taskapp.git
 $ git push --all
 ```
 ![Screen Shot 2015-07-28 at 5.32.51 PM.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/push_to_gh.png)
