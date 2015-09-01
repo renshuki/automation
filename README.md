@@ -65,7 +65,7 @@ brew 'git-flow'
 $ cd
 $ brew brewdle
 ```
-![Screen Shot 2015-07-28 at 4.01.46 PM.png](homebrew.png)
+![Screen Shot 2015-07-28 at 4.01.46 PM.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/homebrew.png)
 
 
 ### ( Ruby編 )
@@ -84,7 +84,7 @@ $ exec $SHELL -l
 ```sh
 $ rbenv
 ```
-![Screen Shot 2015-07-28 at 4.18.26 PM.png](rbenv.png)
+![Screen Shot 2015-07-28 at 4.18.26 PM.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/rbenv.png)
 
 #### Ruby 2.1.6をインストールする
 ```sh
@@ -124,7 +124,7 @@ $ ndenv rehash
 
 ### ( GitHub編 )
 #### GitHubにリポジトリを作成 ( 今回はtaskapp )
-![Screen Shot 2015-07-28 at 5.24.33 PM.png](create_repo_on_gh.png)
+![Screen Shot 2015-07-28 at 5.24.33 PM.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/create_repo_on_gh.png)
 
 
 ### レシピ用ディレクトリ(recipe)の設定
@@ -173,7 +173,7 @@ $ git commit -am 'Initial Commit'
 $ git remote add origin https://github.com/GitHubのアカウント名/taskapp.git
 $ git push --all
 ```
-![Screen Shot 2015-07-28 at 5.32.51 PM.png](push_to_gh.png)
+![Screen Shot 2015-07-28 at 5.32.51 PM.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/push_to_gh.png)
 
 ### 開発手順
 今回のレシピでは基本的に以下の流れで開発します
@@ -191,7 +191,7 @@ $ git push --all
 
 ### Gemfile（最小の構成）
 #### GitHubにissueを追加
-![create_issue.png](add_issue_on_gh.png)
+![create_issue.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/add_issue_on_gh.png)
 
 #### git-flow でfeatureブランチを作る
 ```sh
@@ -216,7 +216,7 @@ gem 'turbolinks'
 # ~/recipe/taskapp/.bundle にインストールします
 $ bundle install --path .bundle
 ```
-![Screen Shot 2015-07-28 at 5.02.06 PM.png](bundle.png)
+![Screen Shot 2015-07-28 at 5.02.06 PM.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/bundle.png)
 
 #### 変更をコミットする
 ```sh
@@ -230,22 +230,22 @@ $ git flow feature publish setup
 ```
 
 #### プルリクエストを作る
-![create pull request.png](create_pr.png)
+![create pull request.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/create_pr.png)
 ###### 「base」がマージする先のブランチで「compare」がマージする元のブランチです
 ###### ここでは「base」がdevelopブランチで「compare」がfeatureブランチです
 
 #### プルリクエストをdevelopブランチにマージする
 ###### マージ前
-![merge pull request from feature:setup.png](merge_pr.png)
+![merge pull request from feature:setup.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/merge_pr.png)
 
 ###### マージ後
-![merged pullrequest from feature:setup.png](merged_pr.png)
+![merged pullrequest from feature:setup.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/merged_pr.png)
 
 #### developブランチをmasterブランチにマージする
 ##### 上記と同様にdevelopブランチをmasterブランチにマージします
 
 #### Issueがclosedになっていることを確認する
-![Screen Shot 2015-07-28 at 6.04.42 PM.png](issue_closed.png)
+![Screen Shot 2015-07-28 at 6.04.42 PM.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/issue_closed.png)
 ###### masterブランチへのマージが完了するとIssueが自動的にクローズされます( closed が 1 になっています)
 
 ### テスト駆動開発に必要なGemを入れる
@@ -255,7 +255,7 @@ $ cd ~/recipe/taskapp
 $ git checkout develop
 $ git pull origin develop
 ```
-![Screen Shot 2015-07-28 at 6.36.37 PM.png](pull_latest.png)
+![Screen Shot 2015-07-28 at 6.36.37 PM.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/pull_latest.png)
 
 #### Issueを作る
 title: テスト駆動開発に必要なGemを入れる
@@ -311,7 +311,7 @@ $ git flow feature publish install_tdd_gems
 ```sh
 $ bundle exec rails g rspec:install
 ```
-![Screen Shot 2015-07-28 at 7.20.54 PM.png](install_rspec.png)
+![Screen Shot 2015-07-28 at 7.20.54 PM.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/install_rspec.png)
 
 #### .rspecを編集
 ```sh
@@ -325,24 +325,24 @@ $ bundle exec rails g rspec:install
 ```sh
 $ bundle exec rspec spec
 ```
-![Screen Shot 2015-07-28 at 7.26.33 PM.png](exec_rspec.png)
+![Screen Shot 2015-07-28 at 7.26.33 PM.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/exec_rspec.png)
 
 ### Guardの設定
 #### Guardをインストールする
 ```sh
 $ bundle exec guard init rspec
 ```
-![Screen Shot 2015-07-28 at 7.31.40 PM.png](install_guard.png)
+![Screen Shot 2015-07-28 at 7.31.40 PM.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/install_guard.png)
 
 ### Guardを実行する
 ```sh
 $ bundle exec guard
 ```
-![Screen Shot 2015-07-28 at 7.34.52 PM.png](exec_guard.png)
+![Screen Shot 2015-07-28 at 7.34.52 PM.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/exec_guard.png)
 
 この状態でEnterを押すとテストが実行されます（まだ何もないです）
 
-![Screen Shot 2015-07-28 at 7.37.27 PM.png](no_result.png)
+![Screen Shot 2015-07-28 at 7.37.27 PM.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/no_result.png)
 
 ### テスト自動化の設定
 #### spec/rails_helper.rbを編集
@@ -427,7 +427,7 @@ RSpec.describe 'TOP', type: :feature, js: true do
 end
 ```
 #### toppage_spec.rbを保存するとこのようになります(左側がGuardで右側がソースコードです)
-![Screen Shot 2015-07-28 at 8.36.16 PM.png](test_result.png)
+![Screen Shot 2015-07-28 at 8.36.16 PM.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/test_result.png)
 
 ##### config/routes.rbを編集します
 ```ruby
@@ -449,7 +449,7 @@ end
 ```
 toppage_spec.rbを再度保存します(中身は変わってないです)
 #### Guardの画面を見るとテストを通過していることが確認できます
-![Screen Shot 2015-07-28 at 8.52.43 PM.png](check_result.png)
+![Screen Shot 2015-07-28 at 8.52.43 PM.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/check_result.png)
 
 ##### (追記) spec/controllers/home_controller.rbのテストはこんなイメージです。
 ```ruby
@@ -488,14 +488,14 @@ end
 $ bundle exec rspec spec
 $ open coverage/index.html
 ```
-![Screen Shot 2015-07-28 at 9.09.03 PM.png](coverage.png)
+![Screen Shot 2015-07-28 at 9.09.03 PM.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/coverage.png)
 
 ### Production環境で実行する
 #### シークレットキーを作成
 ```sh
 $ bundle exec rake secret
 ```
-![Screen Shot 2015-07-28 at 10.12.58 PM.png](secret.png)
+![Screen Shot 2015-07-28 at 10.12.58 PM.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/secret.png)
 #### ~/.bashrcの末尾にシークレットキーを追加
 ```sh
 # ~/.bashrc
@@ -598,7 +598,7 @@ $ bundle install --path .bundle
 ```sh
 $ bundle exec cap install
 ```
-![Screen Shot 2015-07-28 at 10.45.05 PM.png](install_capistrano.png)
+![Screen Shot 2015-07-28 at 10.45.05 PM.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/install_capistrano.png)
 
 ##### Capfileを以下のように編集します
 ```ruby
@@ -674,7 +674,7 @@ $ ssh-keygen -t rsa
 # パスフレーズには何も入力せずEnterを押してください
 # 名前は「taskapp」とします
 ```
-![Screen Shot 2015-07-28 at 11.42.02 PM.png](keys.png)
+![Screen Shot 2015-07-28 at 11.42.02 PM.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/keys.png)
 
 #### 秘密鍵の権限を400に設定します
 ```sh
@@ -917,7 +917,7 @@ $ vagrant up
 $ cd ~/recipe/taskapp
 $ bundle exec cap production deploy
 ```
-![Screen Shot 2015-07-31 at 6.50.25 AM.png](deploy.png)
+![Screen Shot 2015-07-31 at 6.50.25 AM.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/deploy.png)
 
 ### 確認
 
@@ -925,7 +925,7 @@ $ bundle exec cap production deploy
 ブラウザでこのURLを開きます
 http://127.0.0.1:8080
 ```
-![Screen Shot 2015-07-31 at 7.10.18 AM.png](browser_result.png)
+![Screen Shot 2015-07-31 at 7.10.18 AM.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/browser_result.png)
 
 ## Serverspec
 ### インストール
@@ -946,7 +946,7 @@ $ bundle install
 ```sh
 $ bundle exec serverspec-init
 ```
-![Screen Shot 2015-07-31 at 4.07.25 PM.png](init_serverspec.png)
+![Screen Shot 2015-07-31 at 4.07.25 PM.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/init_serverspec.png)
 
 ### spec_helper.rbを編集
 ```sh
@@ -1012,4 +1012,4 @@ end
 ```sh
 $ bundle exec rake spec:_default
 ```
-![Screen Shot 2015-07-31 at 4.26.01 PM.png](serverspec_result.png)
+![Screen Shot 2015-07-31 at 4.26.01 PM.png](https://raw.githubusercontent.com/yhoshino11/Automation/master/images/serverspec_result.png)
